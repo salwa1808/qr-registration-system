@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>QR Registration System</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="assets/css/style.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 </head>
 
-<body style="background:#f4f6f9;">
+<body>
 
-<div class="container mt-5">
+<div class="container">
 
-    <div class="card shadow p-4 col-md-6 mx-auto text-center">
+<div class="row justify-content-center">
 
-        <h2 class="mb-4">
-            QR Code Pendaftaran
-        </h2>
+<div class="col-md-6 mt-5">
 
-        <p>
-            Scan QR menggunakan smartphone untuk melakukan pendaftaran
-        </p>
+<div class="card card-custom shadow-lg p-5 text-center">
 
-        <button
-        onclick="generateQR()"
-        class="btn btn-primary mb-4">
+<h1 class="title">
 
-            Generate QR
-        </button>
+QR Registration System
 
-        <div id="qrcode"></div>
+</h1>
 
-    </div>
+<p class="subtitle">
+
+Scan QR menggunakan smartphone
+untuk melakukan pendaftaran
+
+</p>
+
+<div id="qrcode"></div>
 
 </div>
 
-<script>
+<div class="footer">
 
-function generateQR(){
+© 2026 QR Registration System
 
-    document.getElementById("qrcode").innerHTML = "";
+</div>
 
-    new QRCode(document.getElementById("qrcode"), {
+</div>
 
-        text: "http://192.168.1.6/qr_registration/daftar.php",
+</div>
 
-        width: 250,
-        height: 250
+</div>
 
-    });
-
-}
-
-</script>
+<script src="assets/js/script.js"></script>
 
 </body>
+
 </html>

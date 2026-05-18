@@ -1,5 +1,10 @@
 <?php
 include 'koneksi.php';
+
+$data = mysqli_query($conn,
+"SELECT * FROM pendaftaran");
+
+$total = mysqli_num_rows($data);
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +15,8 @@ include 'koneksi.php';
 
 <title>Dashboard</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+rel="stylesheet">
 
 </head>
 
@@ -18,52 +24,60 @@ include 'koneksi.php';
 
 <div class="container mt-5">
 
-    <div class="card shadow p-4">
+<div class="card shadow p-4">
 
-        <h2 class="mb-4">
-            Data Pendaftaran
-        </h2>
+<h2 class="mb-3">
 
-        <table class="table table-bordered">
+Dashboard Pendaftaran
 
-            <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>No HP</th>
-                <th>Tanggal</th>
-            </tr>
+</h2>
 
-            <?php
+<div class="alert alert-primary">
 
-            $no = 1;
+Total Peserta:
+<b><?= $total ?></b>
 
-            $data = mysqli_query($conn,
-            "SELECT * FROM pendaftaran");
+</div>
 
-            while($d = mysqli_fetch_array($data)){
+<table class="table table-striped table-hover">
 
-            ?>
+<tr class="table-dark">
 
-            <tr>
+<th>No</th>
+<th>Nama</th>
+<th>Email</th>
+<th>No HP</th>
+<th>Tanggal</th>
 
-                <td><?= $no++; ?></td>
+</tr>
 
-                <td><?= $d['nama']; ?></td>
+<?php
 
-                <td><?= $d['email']; ?></td>
+$no=1;
 
-                <td><?= $d['no_hp']; ?></td>
+while($d=mysqli_fetch_array($data)){
 
-                <td><?= $d['created_at']; ?></td>
+?>
 
-            </tr>
+<tr>
 
-            <?php } ?>
+<td><?= $no++ ?></td>
 
-        </table>
+<td><?= $d['nama'] ?></td>
 
-    </div>
+<td><?= $d['email'] ?></td>
+
+<td><?= $d['no_hp'] ?></td>
+
+<td><?= $d['created_at'] ?></td>
+
+</tr>
+
+<?php } ?>
+
+</table>
+
+</div>
 
 </div>
 
